@@ -16,26 +16,26 @@ Once you have installed the paho-mqtt library, you can start using MQTT in your 
 import paho.mqtt.client as mqtt
 import time
 
-### Define callback function for MQTT on_connect event
+#### Define callback function for MQTT on_connect event
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
     else:
         print("Failed to connect, return code %d\n", rc)
 
-### Create an MQTT client instance
+#### Create an MQTT client instance
 client = mqtt.Client()
 
-### Set callback function for MQTT on_connect event
+#### Set callback function for MQTT on_connect event
 client.on_connect = on_connect
 
-### Connect to the MQTT broker
+#### Connect to the MQTT broker
 client.connect("test.mosquitto.org", 1883, 60)
 
-### Start the MQTT client loop to handle incoming and outgoing messages
+#### Start the MQTT client loop to handle incoming and outgoing messages
 client.loop_start()
 
-### Publish messages every 5 seconds
+#### Publish messages every 5 seconds
 while True:
     client.publish("topic/test", "Hello, MQTT!")
     print("Message published")
@@ -46,7 +46,7 @@ while True:
 ## Example 2: Subscribing-to-Messages.py
 import paho.mqtt.client as mqtt
 
-### Define callback functions for MQTT events
+#### Define callback functions for MQTT events
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
@@ -57,17 +57,17 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print("Received message: ", str(msg.payload.decode("utf-8")))
 
-### Create an MQTT client instance
+#### Create an MQTT client instance
 client = mqtt.Client()
 
-### Set callback functions
+#### Set callback functions
 client.on_connect = on_connect
 client.on_message = on_message
 
-### Connect to the MQTT broker
+#### Connect to the MQTT broker
 client.connect("test.mosquitto.org", 1883, 60)
 
-### Start the MQTT client loop to handle incoming messages
+#### Start the MQTT client loop to handle incoming messages
 client.loop_forever()
 
 
