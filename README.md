@@ -9,7 +9,7 @@ Installing the MQTT Library on Windows:
    
 pip install paho-mqtt
 
-# Using MQTT with Python:
+## Using MQTT with Python:
 Once you have installed the paho-mqtt library, you can start using MQTT in your Python scripts. Here's a simple example of how to publish and subscribe to MQTT messages:
 
 ## Example 1: Publishing_Messages.py
