@@ -1,4 +1,4 @@
-# MQTT-Protocol-using-Python
+# MQTT Protocol using Python 
 
 MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol designed for low-bandwidth, high-latency, or unreliable networks. It's commonly used in IoT (Internet of Things) applications, where devices need to communicate with each other efficiently.
 To install the MQTT library on Windows and use it with Python, you can follow these steps:
@@ -12,30 +12,30 @@ pip install paho-mqtt
 # Using MQTT with Python:
 Once you have installed the paho-mqtt library, you can start using MQTT in your Python scripts. Here's a simple example of how to publish and subscribe to MQTT messages:
 
-# Example 1: Publishing_Messages.py
+## Example 1: Publishing_Messages.py
 import paho.mqtt.client as mqtt
 import time
 
-# Define callback function for MQTT on_connect event
+### Define callback function for MQTT on_connect event
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
     else:
         print("Failed to connect, return code %d\n", rc)
 
-# Create an MQTT client instance
+### Create an MQTT client instance
 client = mqtt.Client()
 
-# Set callback function for MQTT on_connect event
+### Set callback function for MQTT on_connect event
 client.on_connect = on_connect
 
-# Connect to the MQTT broker
+### Connect to the MQTT broker
 client.connect("test.mosquitto.org", 1883, 60)
 
-# Start the MQTT client loop to handle incoming and outgoing messages
+### Start the MQTT client loop to handle incoming and outgoing messages
 client.loop_start()
 
-# Publish messages every 5 seconds
+### Publish messages every 5 seconds
 while True:
     client.publish("topic/test", "Hello, MQTT!")
     print("Message published")
@@ -43,10 +43,10 @@ while True:
 
 
 
-# Example 2: Subscribing-to-Messages.py
+## Example 2: Subscribing-to-Messages.py
 import paho.mqtt.client as mqtt
 
-# Define callback functions for MQTT events
+### Define callback functions for MQTT events
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Connected to MQTT broker")
@@ -57,21 +57,21 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print("Received message: ", str(msg.payload.decode("utf-8")))
 
-# Create an MQTT client instance
+### Create an MQTT client instance
 client = mqtt.Client()
 
-# Set callback functions
+### Set callback functions
 client.on_connect = on_connect
 client.on_message = on_message
 
-# Connect to the MQTT broker
+### Connect to the MQTT broker
 client.connect("test.mosquitto.org", 1883, 60)
 
-# Start the MQTT client loop to handle incoming messages
+### Start the MQTT client loop to handle incoming messages
 client.loop_forever()
 
 
-# Running the Scripts:
+## Running the Scripts:
 1.	Save the Publishing_Messages.py and Subscribing-to-Messages.py scripts in separate files.
 2.	Open two command prompt or terminal windows.
 3.	In one window, run the Publisher script:
