@@ -7,7 +7,7 @@ Installing the MQTT Library on Windows:
 2.	Install PIP: PIP is a package manager for Python. It usually comes pre-installed with Python, but if not, you can install it by following the instructions here.
 3.	Install paho-mqtt: Paho MQTT is a Python implementation of the MQTT protocol. You can install it using PIP by running the following command in your command prompt or terminal:
    
-   pip install paho-mqtt
+      pip install paho-mqtt
 
 ## Using MQTT with Python:
 Once you have installed the paho-mqtt library, you can start using MQTT in your Python scripts. Here's a simple example of how to publish and subscribe to MQTT messages:
